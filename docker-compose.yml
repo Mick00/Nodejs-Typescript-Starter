@@ -6,3 +6,12 @@ services:
       dockerfile: "./Dockerfile"
     volumes:
       - "./:/usr/src/app"
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_USER: ${DB_USER}
